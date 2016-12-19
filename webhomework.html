@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>10625이찬우 과제</title>
+  </head>
+  <body>
+<h1>과제 입니당</h1>
+<canvas id="cnvs1" width="100" height="100" > </canvas>
+<canvas id="cnvs2" width="100" height="100" > </canvas>
+<canvas id="cnvs3" width="100" height="100" > </canvas> <!-- 사각형 색칠 공간 -->
+<canvas id="cnvs4" width="100" height="100" > </canvas>
+<canvas id="cnvs5" width="100" height="100" > </canvas>
+<br>
+<canvas id="cnvst1" width="100" height="100" > </canvas>
+<canvas id="cnvst2" width="100" height="100" > </canvas>
+<canvas id="cnvst3" width="100" height="100" > </canvas> <!-- 삼각형 색칠 공간 -->
+<canvas id="cnvst4" width="100" height="100" > </canvas>
+<canvas id="cnvst5" width="100" height="100" > </canvas>
+<br>
+<canvas id="cnvso1" width="100" height="130" > </canvas>
+<canvas id="cnvso2" width="100" height="130" > </canvas>
+<canvas id="cnvso3" width="100" height="130" > </canvas> <!-- 원 그릴 공간 -->
+<canvas id="cnvso4" width="100" height="130" > </canvas>
+<canvas id="cnvso5" width="100" height="130" > </canvas>
+
+<script>
+
+
+
+for(let i = 1;i <= 5; ++i){ // 사각형
+    var cnvs = document.getElementById("cnvs"+i); // 공간을 받아온다.
+    var ctx = cnvs.getContext("2d"); // 그릴 수 있게 한다.
+    let color1;
+
+    color1 = 255 - i*30;
+    ctx.fillStyle = 'rgb('+color1+',0,0)';
+    ctx.fillRect(0,0,100,100); // 그린다.
+  }
+
+  for(let i = 1;i <= 5; ++i){//삼각형
+      var cnvst = document.getElementById("cnvst"+i);
+      var ctxt = cnvst.getContext("2d");
+      let color1t;
+      color1t = 255 - i*30;
+
+      ctxt.beginPath();
+
+      ctxt.moveTo(50 ,0);   //
+      ctxt.lineTo(0, 100); //
+      ctxt.lineTo(100, 100);
+
+      ctxt.closePath(); //
+      ctxt.fillStyle = 'rgb(0,'+color1t+',0)'; //
+      ctxt.fill(); //
+    }
+
+    for(let i = 1;i <= 5; ++i){ // 원
+        var cnvso = document.getElementById("cnvso"+i);
+        var ctxo = cnvso.getContext("2d"); //.
+        let coloro = 255 - i*30;
+
+        ctxo.beginPath();
+
+        ctxo.arc(50,60, 40,0, Math.PI * (i * 0.3 ), false);
+
+
+
+        ctxo.lineWidth = i * 1.5;
+        ctxo.strokeStyle = 'rgb(0,0,'+coloro+')';
+        ctxo.stroke();
+      }
+
+
+
+
+</script>
+
+  </body>
+</html>
